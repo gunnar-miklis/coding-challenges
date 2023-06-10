@@ -83,3 +83,34 @@ console.log( findOdd( [20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5] ) ); // 5
 console.log( findOdd( [10] ) ); // 10
 console.log( findOdd( [1, 1, 2] ) ); // 2
 console.log( findOdd( [0, 1, 0, 1, 0] ) ); // 0
+
+
+// one-liner solution
+function findOdd2( A ) {
+	// The XOR operation is performed between the accumulated value (sum = 20) and the current element (val = 1 ... ).
+	// The result of the XOR operation becomes the new accumulated value (sum) for the next iteration.
+	// Finally, the reduce method finishes iterating over all the elements in the array, and it returns the last accumulated value.
+	// 20 ^ 1 = 21
+	// 21 ^ 1 = 20
+	// 20 ^ 2 = 22
+	// 22 ^ 2 = 20
+	// 20 ^ 3 = 23
+	// 23 ^ 3 = 20
+	// 20 ^ 5 = 17
+	// 17 ^ 5 = 20
+	// 20 ^ 4 = 16
+	// 16 ^ 20 = 4
+	// 4 ^ 5 = 1
+	return A.reduce( ( sum, val ) => sum ^ val, 0 );
+}
+console.log( findOdd2( [20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5] ) );
+
+// learning:
+// XOR ('^') bitwise operator
+// Bitwise XOR ^ returns 1 if the corresponding bits are different and returns 0 if the corresponding bits are the same.
+// https://www.programiz.com/javascript/bitwise-operators
+// bitwise XOR operator example
+const a = 12; // 01100
+const b = 25; // 11001
+const result = a ^ b; // 00010101
+console.log( result ); // 21
