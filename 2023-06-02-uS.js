@@ -55,7 +55,7 @@ console.log( nextBigger( 2017 ) );
 
 
 // COMMENT: most of them passes the test... some combinations somehow don't work, idk
-//	also.. at the end it says "no brutforce bla bla" 🖕 spent the fucking day on this shit 🖕
+//	also.. at the end it says "no brutforce bla bla" ...spent the entire day on this shit 💩😭
 function nextBigger2( n ) {
 	if ( n < 10 ) return -1;
 
