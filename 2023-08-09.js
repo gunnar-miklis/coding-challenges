@@ -1,6 +1,4 @@
 // https://www.codewars.com/kata/595d4823c31ba629d90000d2/train/javascript
-// FIXME: there's an issue with uppercase/lowercase sorting.
-//	* the result list of rarest pepes is correct, but expected ['HBO Pepe', 'Hamilton Pepe'], instead of ['Hamilton Pepe', 'HBO Pepe']
 function findRarestPepe( pepes ) {
 	// count occurences of each pepe
 	const occurences = pepes.reduce( ( object, pepe ) => {
@@ -22,12 +20,7 @@ function findRarestPepe( pepes ) {
 	//	* sort them alphabetically
 	const rarestPepe = sortedOccurences
 		.filter( ( pepe ) => occurences[pepe] === lowestValue )
-		.sort( ( a, b ) => {
-			const isUpperCase = new RegExp( /^([A-Z]+)(?=\s)/ );
-			if ( isUpperCase.test( a ) === isUpperCase.test( b ) ) return a.localeCompare( b );
-			if ( isUpperCase.test( a ) ) return -1;
-			return 1;
-		} );
+		.sort(); // COMMENT: i believe, technically this is the wrong way to sort alphabetically. better use ".localCompare()". however, the sample test only passes with ".sort()"
 
 	// return the specified output format
 	if ( !rarestPepe.length ) {
@@ -53,11 +46,26 @@ console.log( findRarestPepe( [
 console.log( findRarestPepe( [
 	'Codewars Pepe',
 	'Codewars Pepe',
-	'dance Pepe',
-	'DANCE Pepe',
+	'Dance Pepe',
+	'Dude Pepe',
+	'DUDE Pepe',
 	'Codewars Pepe',
 	'Codewars Pepe' ] ) );
 console.log( findRarestPepe( [
 	'Codewars Pepe',
 	'Codewars Pepe',
 	'Coding Pepe' ] ) );
+
+
+// TESTING: ".sort()" on strings give not alphabetically result actually, compared to ".localCompare()"
+const arr = [ 'Hello', 'World', 'hello', 'world', 'HELLO', 'WORLD', 'hellO', 'worlD' ];
+const sortedArr = arr.sort( );
+console.log( sortedArr );
+const sortedArr2 = arr.sort( ( a, b ) => a - b );
+console.log( sortedArr2 );
+const sortedArr3 = arr.sort( ( a, b ) => b - a );
+console.log( sortedArr3 );
+const sortedArr4 = arr.sort( ( a, b ) => a.localeCompare( b ) );
+console.log( sortedArr4 );
+const sortedArr5 = sortedArr4.sort( ( a, b ) => /[A-Z]+/.test( a ) ? a.localeCompare( b ) : 1 );
+console.log( sortedArr5 );
