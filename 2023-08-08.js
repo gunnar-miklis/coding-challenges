@@ -49,4 +49,3 @@ console.log(
 	AlanAnnoyingKid2( 'Today I didn\'t play football.' ) );
 console.log(
 	AlanAnnoyingKid2( 'Today I didn\'t attempt to hardcode this Kata.' ) );
-
