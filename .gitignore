@@ -1,3 +1,14 @@
-.eslintrc.json
-package-lock.json
-node_modules/
+# ignore
+.*
+*.*
+dist
+node_modules
+
+# allow
+!src/*
+!package.json
+!tsconfig.json
+!*eslint*
+!.prettier*
+!.editorconfig
+!README.md
