@@ -1,4 +1,6 @@
-type Developers = {
+export {};
+
+type Developer = {
   firstName: string;
   lastName: string;
   country: string;
@@ -7,8 +9,9 @@ type Developers = {
   language: string;
 };
 
+
 // SECTION: https://www.codewars.com/kata/coding-meetup-number-7-higher-order-functions-series-find-the-most-senior-developer
-let developers: Developers[] = [
+let developers: Developer[] = [
   {
     firstName: 'Gabriel',
     lastName: 'X.',
@@ -43,7 +46,7 @@ let developers: Developers[] = [
   },
 ];
 
-function findSenior(devs: Developers[]): Developers[] {
+function findSenior(devs: Developer[]): Developer[] {
   const ages = devs.map(({ age }) => age);
   const maxAge = Math.max(...ages);
   const oldestDevs = devs.filter(({ age }) => age === maxAge);
@@ -96,7 +99,7 @@ developers = [
   },
 ];
 
-function allContinents(devs: Developers[]): boolean {
+function allContinents(devs: Developer[]): boolean {
   const continents = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'] as const;
   const devOrigins = new Set(devs.map(({ continent }) => continent));
   return continents.every((continent) => devOrigins.has(continent));
@@ -188,7 +191,7 @@ developers = [
   },
 ];
 
-function isAgeDiverse(devs: Developers[]): boolean {
+function isAgeDiverse(devs: Developer[]): boolean {
   const ageGroups = {
     teens: false,
     twenties: false,
@@ -242,8 +245,8 @@ developers = [
   },
 ];
 
-type DevelopersWithUsername = Developers & { username: string };
-function addUsername(devs: Developers[]) {
+type DeveloperWithUsername = Developer & { username: string };
+function addUsername(devs: Developer[]) {
   const date = new Date();
   const currYear = date.getFullYear();
 
@@ -256,7 +259,7 @@ function addUsername(devs: Developers[]) {
   //   });
 
   // refined approach:
-  const modifiedDevs: DevelopersWithUsername[] = devs.map((dev) => ({
+  const modifiedDevs: DeveloperWithUsername[] = devs.map((dev) => ({
     ...dev,
     username: [
       dev.firstName.toLowerCase(),
@@ -267,7 +270,7 @@ function addUsername(devs: Developers[]) {
 
   return modifiedDevs;
 }
-const modifiedDevelopers: DevelopersWithUsername[] = addUsername(developers);
+const modifiedDevelopers: DeveloperWithUsername[] = addUsername(developers);
 console.log(modifiedDevelopers);
 
 // SECTION: https://www.codewars.com/kata/555086d53eac039a2a000083/train/javascript
