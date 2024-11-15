@@ -70,7 +70,7 @@ console.log(uniqueReduceList2);
 // NOTE: However, FIRST occurence is used => { name: 'Lynn' }.
 // NOTE: notice, type inference works
 const uniqueReduceList3 = list.reduce((persons: Person[], person) => {
-  if (!persons.some((person) => person.name === person.name)) {
+  if (!persons.some((p) => p.name === person.name)) {
     persons.push(person);
   }
   return persons;
