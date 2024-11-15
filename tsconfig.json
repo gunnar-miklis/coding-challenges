@@ -8,7 +8,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    // debugging
+    "outDir": "out",
+    "sourceMap": true
   },
   "exclude": [".vscode", ".yarn", "node_modules", ".pnp.*", "dist"]
 }
