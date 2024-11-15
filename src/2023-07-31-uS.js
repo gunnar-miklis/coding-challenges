@@ -1,4 +1,7 @@
 // https://www.codewars.com/kata/5b7d7ce57a0c9d86c700014b/train/javascript
+
+// DONE: solved in 2024-11-15.ts
+
 function addAll(numbers) {
   const nums = numbers.sort();
 
@@ -11,7 +14,7 @@ function addAll(numbers) {
 
   return result.reduce((sum, num) => sum + num, 0) - 1;
 }
-// DONE: those two are correct
+// those two are correct
 console.log(addAll([1, 2, 3])); // :>> 9
 // equal:
 console.log(3 + 6); // :>> 9
