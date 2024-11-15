@@ -1,4 +1,7 @@
 // https://www.codewars.com/kata/64d9f8b2dd14d200247b8184/train/javascript
+
+// DONE: solved in 2024-11-14.ts
+
 // FIXME: kinda works... but won't pass the test "should handle lots of names" neither "Should work for random names"
 //	* the indexOf logic is not correct.
 function generateChatRoomNames(users) {
