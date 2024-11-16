@@ -1,4 +1,8 @@
 // https://www.codewars.com/kata/5b6dac711db5cef31100005b/train/javascript
+
+// DONE: solved in 2024-11-16.ts
+//  => issue was the mutation of the initial recipe/available objects, which interferes with the random tests.
+
 function canBake(available, recipe) {
   const missingIngredients = [];
 
